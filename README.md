@@ -50,6 +50,7 @@ src/main/java/com/ysfgven/weatherapp/
 ├── service/         # API integration and data parsing
 ├── view/            # JavaFX UI components
 └── util/            # Helper classes (IconManager, ErrorHandler)
+```
 
 
 ## 👨‍💻 Developer's Note
