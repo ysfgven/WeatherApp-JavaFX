@@ -1,0 +1,29 @@
+# --- Java & Build ---
+*.class
+*.jar
+*.war
+*.ear
+target/
+build/
+
+# --- IntelliJ IDEA ---
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# --- Eclipse ---
+.metadata/
+bin/
+.classpath
+.project
+.settings/
+
+# --- Uygulamaya Özel (Kritik) ---
+logs/
+config.properties
+
+# --- OS ---
+.DS_Store
+Thumbs.db
