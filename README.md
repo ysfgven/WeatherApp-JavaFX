@@ -57,4 +57,4 @@ src/main/java/com/ysfgven/weatherapp/
 This project represents my transition from writing "functional code" to "architectural code." It was a deep dive into the JavaFX lifecycle, multithreading challenges, and the importance of decoupling components in a Java environment.
 
 ---
-**Contact:** [https://www.linkedin.com/in/yusuf-g%C3%BCven/] | [yusuf.guven0@hotmail.com]
+**Contact:** [LinkedIn](https://www.linkedin.com/in/yusuf-g%C3%BCven/) | [yusuf.guven0@hotmail.com]
