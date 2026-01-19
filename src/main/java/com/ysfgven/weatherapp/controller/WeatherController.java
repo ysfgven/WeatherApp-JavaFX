@@ -5,7 +5,6 @@ import com.ysfgven.weatherapp.service.APIService;
 import com.ysfgven.weatherapp.view.WeatherDetailView;
 import javafx.concurrent.Task;
 
-import static com.ysfgven.weatherapp.util.ErrorHandler.showError;
 
 public class WeatherController {
     private APIService apiService;
@@ -15,6 +14,7 @@ public class WeatherController {
     public WeatherController(WeatherDetailView detailView) {
         this.apiService = new APIService(System.getenv("WEATHER_API_KEY"));
         this.detailView = detailView;
+        initSelectionListener();
     }
 
     public void onLocationSelected(String locationName) {
@@ -38,4 +38,10 @@ public class WeatherController {
 
         new Thread(weatherTask).start();
     }
+    private void initSelectionListener() {
+        this.detailView.setOnDaySelected(selectedDay -> {
+            detailView.displayForecastDay(selectedDay);
+        });
+    }
+
 }

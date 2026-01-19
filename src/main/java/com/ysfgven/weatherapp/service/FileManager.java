@@ -1,6 +1,6 @@
-package com.ysfgven.weatherapp.controller;
+package com.ysfgven.weatherapp.service;
+import com.ysfgven.weatherapp.controller.LocationListController;
 import com.ysfgven.weatherapp.model.Locations;
-import com.ysfgven.weatherapp.service.IOService;
 
 import com.ysfgven.weatherapp.view.LocationListView;
 
@@ -9,7 +9,7 @@ import java.io.File;
 import static com.ysfgven.weatherapp.util.ErrorHandler.logException;
 import static com.ysfgven.weatherapp.util.ErrorHandler.showError;
 
-public class FileController {
+public class FileManager {
     private final IOService ioService = new IOService();
 
     private final String userHome = System.getProperty("user.home");
@@ -18,11 +18,11 @@ public class FileController {
 
     private final LocationListController locationListController;
 
-    public FileController(LocationListView listView) {
+    public FileManager(LocationListView listView) {
         this.locationListController = new LocationListController(listView);
     }
 
-    public void fileCheck() {
+    public void initFiles() {
         if (!dir.exists()) {
             dir.mkdirs();
         }

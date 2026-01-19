@@ -1,6 +1,6 @@
     package com.ysfgven.weatherapp.view;
 
-    import com.ysfgven.weatherapp.controller.FileController;
+    import com.ysfgven.weatherapp.service.FileManager;
     import com.ysfgven.weatherapp.controller.MainScreenController;
     import com.ysfgven.weatherapp.controller.WeatherController;
     import com.ysfgven.weatherapp.model.Locations;
@@ -12,7 +12,6 @@
     import javafx.scene.control.TextField;
     import javafx.scene.layout.*;
     import javafx.stage.Stage;
-    import javafx.scene.Parent;
 
 
     public class MainScreenView {
@@ -27,69 +26,66 @@
         public MainScreenView(Stage stage) {
             this.stage = stage;
             createMainScreenUI();
-            mainScreenController = new MainScreenController(locationListView,new FileController(locationListView));
+            mainScreenController = new MainScreenController(locationListView,new FileManager(locationListView));
         }
-
+        //UI Creator Func
         public void createMainScreenUI() {
             borderPane = new BorderPane();
-            borderPane.setStyle("-fx-background-color: #f8f9fa;");
 
             weatherDetailView = new WeatherDetailView();
             locationListView = new LocationListView(this::onLocationSelected);
             weatherController = new WeatherController(weatherDetailView);
 
-            HBox inputBox = createSearchBox();
-            borderPane.setTop(inputBox);
+            borderPane.setTop(createSearchBox());
 
+            // Left
             VBox leftContainer = new VBox(locationListView.getListView());
-            VBox.setVgrow(locationListView.getListView(), Priority.ALWAYS);
-
             leftContainer.setPrefWidth(300);
-            leftContainer.setMinWidth(300);
-            leftContainer.setPadding(new Insets(20));
-            leftContainer.setStyle(
-                    "-fx-background-color: white; " +
-                            "-fx-background-radius: 30; " +
-                            "-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 15, 0, 5, 0);"
-            );
+            leftContainer.getStyleClass().add("sidebar-container");
 
-            Parent detailContent = weatherDetailView.getDetailedView();
+
+            //Right
+            VBox detailContent = (VBox) weatherDetailView.getDetailedView();
             HBox.setHgrow(detailContent, Priority.ALWAYS);
 
-            HBox mainContentArea = new HBox(20);
-            mainContentArea.setPadding(new Insets(20));
+            // Size Adj
+            double fixedHeight = 650;
+            leftContainer.setMinWidth(300);
+            leftContainer.setPrefWidth(300);
+            leftContainer.setMaxWidth(300);
+            leftContainer.setPrefHeight(fixedHeight);
+            leftContainer.setMaxHeight(fixedHeight);
+            detailContent.setPrefHeight(fixedHeight);
+            detailContent.setMaxHeight(fixedHeight);
+
+            HBox mainContentArea = new HBox(20, leftContainer, detailContent);
+            mainContentArea.setPadding(new Insets(20, 20, 60, 20));
             mainContentArea.setAlignment(Pos.TOP_LEFT);
-
-            leftContainer.maxHeightProperty().bind(((VBox)detailContent).heightProperty());
-
-            mainContentArea.getChildren().addAll(leftContainer, detailContent);
 
             borderPane.setCenter(mainContentArea);
 
             Scene scene = new Scene(borderPane, 1200, 800);
-
             if (getClass().getResource("/style.css") != null) {
                 scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
             }
             IconManager.setApplicationIcon(stage);
-
             stage.setScene(scene);
             stage.show();
         }
-
+        //SearchBox Creator Func
         private HBox createSearchBox() {
+            //Field
             TextField cityInput = new TextField();
             cityInput.setPromptText("Search city...");
             cityInput.setPrefHeight(40);
             cityInput.setPrefWidth(300);
-            cityInput.setStyle("-fx-background-radius: 20; -fx-padding: 0 15 0 15;");
+            cityInput.getStyleClass().add("search-field");
 
+            //Add Button
             Button addButton = new Button("Add");
             addButton.setPrefHeight(40);
             addButton.setPrefWidth(80);
-            addButton.setStyle("-fx-background-color: #2ecc71; -fx-text-fill: white; " +
-                    "-fx-background-radius: 20; -fx-font-weight: bold; -fx-cursor: hand;");
-
+            addButton.getStyleClass().add("add-button");
             addButton.setOnAction(e -> {
                 if (!cityInput.getText().trim().isEmpty()) {
                     mainScreenController.addNewLocation(cityInput.getText().trim());
@@ -98,16 +94,17 @@
             });
 
             HBox box = new HBox(15, cityInput, addButton);
-            box.setPadding(new Insets(30, 20, 10, 20));
+            box.getStyleClass().add("search-container");
             box.setAlignment(Pos.CENTER);
             return box;
         }
-
+        //Checker Func
         private void onLocationSelected(Locations location) {
             if (location != null) {
                 weatherController.onLocationSelected(location.getLocationName());
             }
         }
+        //Getter
         public LocationListView getLocationListView() {
             return locationListView;
         }

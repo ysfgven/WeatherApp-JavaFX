@@ -25,7 +25,10 @@ public class LocationListView {
             }
         });
     }
+    /*
 
+     ----------------For  efficiency I used runLater----------------
+    */
     public void setLocations(List<Locations> locations) {
         javafx.application.Platform.runLater(() -> {
             listView.getItems().setAll(locations);
@@ -37,6 +40,8 @@ public class LocationListView {
         });
     }
 
+
+    //Getter
     public ListView<Locations> getListView() {
         return listView;
     }

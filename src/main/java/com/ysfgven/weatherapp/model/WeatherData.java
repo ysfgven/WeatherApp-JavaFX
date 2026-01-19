@@ -1,11 +1,14 @@
 package com.ysfgven.weatherapp.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class WeatherData {
     private String city;
-    private double temp_c;
-    private double temp_f;
+    private double tempC;
+    private double tempF;
     private String conditionText;
-    private String icon;
+    private String iconUrl;
     private double feelsLikeC;
     private double feelsLikeF;
     private double windMph;
@@ -16,44 +19,36 @@ public class WeatherData {
     private boolean isDay;
     private String lastUpdated;
     private double cloud;
-    private String iconUrl;
 
-    public void setIconUrl(String iconUrl) {
-        this.iconUrl = iconUrl;
-    }
+    private List<ForecastDay> forecastList = new ArrayList<>();
 
-    public String getIconUrl() {
-        return iconUrl;
-    }
+
+    public List<ForecastDay> getForecastList() { return forecastList; }
 
     public String getCity() { return city; }
     public void setCity(String city) { this.city = city; }
 
-    public double getTempC() { return temp_c; }
-    public void setTempC(double temp_c) { this.temp_c = temp_c; }
+    public double getTempC() { return tempC; }
+    public void setTempC(double tempC) { this.tempC = tempC; }
 
-    public double getTempF() { return temp_f; }
-    public void setTempF(double temp_f) { this.temp_f = temp_f; }
+    public void setTempF(double tempF) { this.tempF = tempF; }
 
     public String getConditionText() { return conditionText; }
     public void setConditionText(String conditionText) { this.conditionText = conditionText; }
 
-    public String getIcon() { return icon; }
-    public void setIcon(String icon) { this.icon = icon; }
+    public String getIconUrl() { return iconUrl; }
+    public void setIconUrl(String iconUrl) { this.iconUrl = iconUrl; }
 
     public double getFeelsLikeC() { return feelsLikeC; }
     public void setFeelsLikeC(double feelsLikeC) { this.feelsLikeC = feelsLikeC; }
 
-    public double getFeelsLikeF() { return feelsLikeF; }
     public void setFeelsLikeF(double feelsLikeF) { this.feelsLikeF = feelsLikeF; }
 
-    public double getWindMph() { return windMph; }
     public void setWindMph(double windMph) { this.windMph = windMph; }
 
     public double getWindKph() { return windKph; }
     public void setWindKph(double windKph) { this.windKph = windKph; }
 
-    public int getWindDegree() { return windDegree; }
     public void setWindDegree(int windDegree) { this.windDegree = windDegree; }
 
     public String getWindDir() { return windDir; }
@@ -62,12 +57,9 @@ public class WeatherData {
     public int getHumidity() { return humidity; }
     public void setHumidity(int humidity) { this.humidity = humidity; }
 
-    public boolean isDay() { return isDay; }
     public void setDay(boolean day) { isDay = day; }
 
-    public String getLastUpdated() { return lastUpdated; }
     public void setLastUpdated(String lastUpdated) { this.lastUpdated = lastUpdated; }
 
-    public double getCloud() { return cloud; }
     public void setCloud(double cloud) { this.cloud = cloud; }
 }

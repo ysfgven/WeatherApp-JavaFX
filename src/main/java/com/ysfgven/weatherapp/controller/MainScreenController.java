@@ -1,16 +1,17 @@
 package com.ysfgven.weatherapp.controller;
 
 import com.ysfgven.weatherapp.model.Locations;
+import com.ysfgven.weatherapp.service.FileManager;
 import com.ysfgven.weatherapp.view.LocationListView;
 
 public class MainScreenController {
     private LocationListView listView;
-    private FileController fileController;
+    private FileManager fileManager;
 
 
-    public MainScreenController(LocationListView listView, FileController fileController) {
+    public MainScreenController(LocationListView listView, FileManager fileManager) {
         this.listView = listView;
-        this.fileController = fileController;
+        this.fileManager = fileManager;
     }
     public void addNewLocation(String cityName) {
         if (cityName == null || cityName.trim().isEmpty()) return;
@@ -19,6 +20,6 @@ public class MainScreenController {
 
         listView.addLocation(newLoc);
 
-        fileController.saveLocation(newLoc);
+        fileManager.saveLocation(newLoc);
     }
 }
