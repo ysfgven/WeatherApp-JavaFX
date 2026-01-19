@@ -1,10 +1,10 @@
-/* --- GENEL AYARLAR --- */
+/* --- General Adj --- */
 .root {
     -fx-background-color: #f8f9fa;
     -fx-font-family: "Segoe UI", sans-serif;
 }
 
-/* --- SOL ŞEHİR LİSTESİ --- */
+/* --- Left City List --- */
 .sidebar-container {
     -fx-background-color: white;
     -fx-background-radius: 30;
@@ -23,7 +23,7 @@
     -fx-text-fill: #2c3e50;
     -fx-padding: 12 20;
     -fx-font-size: 15px;
-    -fx-font-weight: bold; /* Şehir isimleri kalın */
+    -fx-font-weight: bold;
 }
 
 .list-cell:filled:selected {
@@ -33,7 +33,7 @@
     -fx-background-insets: 2 10 2 10;
 }
 
-/* --- ÜST ARAMA PANELİ --- */
+/* --- Search Panel --- */
 .search-container {
     -fx-padding: 30 20 10 20;
 }
@@ -49,7 +49,7 @@
 .add-button {
     -fx-background-color: #2ecc71;
     -fx-text-fill: white;
-    -fx-font-weight: bold; /* Add butonu kalın */
+    -fx-font-weight: bold;
     -fx-background-radius: 20;
     -fx-cursor: hand;
 }
@@ -58,7 +58,7 @@
     -fx-background-color: #27ae60;
 }
 
-/* --- SAĞ DETAY PANELİ --- */
+/* --- Right Detail Panel --- */
 .weather-detail-container {
     -fx-background-color: white;
     -fx-background-radius: 30;
@@ -69,12 +69,12 @@
 
 .city-label {
     -fx-font-size: 45px;
-    -fx-font-weight: bold; /* Şehir adı kalın */
+    -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
 
 .main-temp-label {
-    -fx-font-size: 40px; /* 60px'den düşürdük */
+    -fx-font-size: 40px;
     -fx-font-weight: bold;
     -fx-text-fill: #e67e22;
     -fx-min-width: 0;
@@ -82,11 +82,11 @@
 
 .info-label {
     -fx-font-size: 24px;
-    -fx-font-weight: bold; /* Nem, Rüzgar değerleri kalın */
+    -fx-font-weight: bold;
     -fx-text-fill: #95a5a6;
 }
 
-/* --- TAHMİN KARTLARI --- */
+/* ---  Guess Cards --- */
 .forecast-card {
     -fx-background-color: #f8f9fa;
     -fx-background-radius: 20;
@@ -109,19 +109,19 @@
 }
 
 .forecast-date-label {
-    -fx-font-weight: bold; /* Kart içindeki gün kalın */
+    -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
     -fx-font-size: 15px;
 }
 
 .forecast-max-temp {
     -fx-font-size: 18px;
-    -fx-font-weight: bold; /* Max derece kalın */
+    -fx-font-weight: bold;
     -fx-text-fill: #2c3e50;
 }
 
 .forecast-min-temp {
     -fx-font-size: 14px;
-    -fx-font-weight: bold; /* Min derece kalın */
+    -fx-font-weight: bold;
     -fx-text-fill: #7f8c8d;
 }
