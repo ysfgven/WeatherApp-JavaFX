@@ -32,6 +32,23 @@
     -fx-background-radius: 10;
     -fx-background-insets: 2 10 2 10;
 }
+.list-view .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 5;
+    -fx-padding: 0 2 0 0;
+}
+
+.list-view .scroll-bar:vertical .thumb {
+    -fx-background-color: #dee2e6;
+    -fx-background-radius: 10;
+}
+
+.list-view .scroll-bar:vertical .track,
+.list-view .scroll-bar:vertical .increment-button,
+.list-view .scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+    -fx-shape: "";
+}
 
 /* --- Search Panel --- */
 .search-container {

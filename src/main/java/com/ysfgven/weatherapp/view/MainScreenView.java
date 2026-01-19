@@ -40,9 +40,11 @@
 
             // Left
             VBox leftContainer = new VBox(locationListView.getListView());
+            locationListView.getListView().setMaxWidth(Double.MAX_VALUE);
+            locationListView.getListView().setPrefHeight(650);
+
             leftContainer.setPrefWidth(300);
             leftContainer.getStyleClass().add("sidebar-container");
-
 
             //Right
             VBox detailContent = (VBox) weatherDetailView.getDetailedView();
@@ -83,6 +85,7 @@
 
             //Add Button
             Button addButton = new Button("Add");
+            cityInput.setOnAction(e -> addButton.fire());
             addButton.setPrefHeight(40);
             addButton.setPrefWidth(80);
             addButton.getStyleClass().add("add-button");
