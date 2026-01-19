@@ -18,12 +18,21 @@ public class APIService {
     private final String apiKey;
     private final Gson gson = new Gson();
     private final HttpClient client = HttpClient.newHttpClient();
+    private long lastRequestTime = 0;
+    private static final long MIN_INTERVAL_MS = 2000; //Limit for call freq to 2 sec
 
     public APIService(String apiKey) {
         this.apiKey = apiKey;
     }
 
     public WeatherData getWeatherDataOfLocation(String location) {
+        long currentTime = System.currentTimeMillis();
+        if (currentTime - lastRequestTime < MIN_INTERVAL_MS) {
+            showError("Rate Limit","Too many requests! Slow down.");
+            return null;
+        }
+        lastRequestTime = currentTime;
+
         String encodedLocation = URLEncoder.encode(location, StandardCharsets.UTF_8);
         String url = "http://api.weatherapi.com/v1/forecast.json?key=" + apiKey + "&q=" + encodedLocation + "&days=3&aqi=no&alerts=no";
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).GET().build();

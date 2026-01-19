@@ -34,7 +34,7 @@
 
             weatherDetailView = new WeatherDetailView();
             locationListView = new LocationListView(this::onLocationSelected);
-            weatherController = new WeatherController(weatherDetailView);
+            weatherController = new WeatherController(weatherDetailView,locationListView);
 
             borderPane.setTop(createSearchBox());
 
