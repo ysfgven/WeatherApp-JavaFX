@@ -10,7 +10,7 @@ A professional-grade desktop application for real-time weather tracking, built w
 
 - **MVC Architecture:** Strict separation of concerns (Model-View-Controller). The business logic, data and UI are decoupled, ensuring maintainability and scalability.
 - **Asynchronous Network Operations:** API requests are handled in a separate background thread using JavaFX `Task`. This ensures a **non-blocking UI**, providing a smooth user experience while fetching data.
-- **Robust Error Handling & Logging:** A centralized `ErrorHandler` manages unexpected scenarios (network loss, invalid city input, etc.). While users receive intuitive alerts, technical details are recorded in `logs/application.log` for debugging.
+- **Robust Error Handling & Logging:** A centralized `ErrorHandler` manages unexpected scenarios. While users receive intuitive alerts, technical details are recorded in `logs/application.log` for debugging.
 - **Security (Environment Variables):** API keys are never hard-coded. The application securely retrieves credentials via system environment variables.
 
 
@@ -30,8 +30,7 @@ As this is a project focused on learning and architectural implementation, the f
 1.  **Icon Latency:** Icons are fetched directly from WeatherAPI's CDN. In cases of slow internet connections, there might be a slight delay in icon rendering.
 2.  **Search Logic:** City search accuracy is currently dependent on the API provider's capabilities. Client-side "fuzzy search" or "auto-complete" is not yet implemented.
 3.  **Test Coverage:** The project currently lacks automated Unit Tests. Stability is ensured through manual edge-case testing (Unit Testing is in the TODO list for future updates).
-4. **Current Focus:** The application currently focuses on real-time data. Future versions are planned to include extended forecast features.
-
+  
 
 ## ⚙️ Setup and Security
 
@@ -54,6 +53,7 @@ src/main/java/com/ysfgven/weatherapp/
 
 
 ## 👨‍💻 Developer's Note
+**I've only covered and coded forecast option for 3 days since my API's limitations.**
 This project represents my transition from writing "functional code" to "architectural code." It was a deep dive into the JavaFX lifecycle, multithreading challenges, and the importance of decoupling components in a Java environment.
 
 ---
