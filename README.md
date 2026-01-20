@@ -4,6 +4,10 @@
 [![JavaFX](https://img.shields.io/badge/JavaFX-17-blue)](https://openjfx.io/)
 [![Maven](https://img.shields.io/badge/Maven-3.8.1-red)](https://maven.apache.org/)
 
+## 📸 Application Preview
+
+![WeatherApp UI](screenshots/weatherAppMergedScreenShot.png)
+
 A professional-grade desktop application for real-time weather tracking, built with JavaFX. This project was developed as part of my Software Engineering 2nd-year studies to implement modern software principles, asynchronous data handling, and secure development practices.
 
 ## 🚀 Engineering Practices Applied
